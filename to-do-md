@@ -1,0 +1,17 @@
+To-Do App.
+-[1] craete a database.sql file to hold
+the setup queries you run in postico.
+* CREATE TABLE
+* INSERT queries
+* name the database 'weekend-to-do-app'
+-[2] npm init to craete pakage.jason and npm install express, pg, body-parser.
+[3]create files
+[] on server set up pg pool.
+ [4] on DOM - inputr for new task and Submit button.
+ []on the server side set up express, body-parser boilerplate.
+
+-[5] on client -event handler for new task button that calls Ajax POST.
+
+-[6] server - app.post for new task
+ (router motules on if u have time) use server.js to begin.
+ -[7] use pg to INSERT new task into our data base.
