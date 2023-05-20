@@ -7,7 +7,7 @@ function onReady() {
     getToDoList();
     $('#add-button').on('click',addToDo )
     $('#viewToDo').on('click', '.delete-btn', deleteTask)
-    $('#viewToDo').on('click', '.complete-btn', deleteTask)
+    $('#viewToDo').on('click', '.complete-btn', updateTask)
 
     
     
@@ -66,6 +66,24 @@ $.ajax({
 
 }
 
+
+//PUT
+
+function updateTask() {
+    const taskToComplete = $(this).closest("tr").data("id");
+    console.log('clicked');
+    $.ajax({
+      method: "PUT",
+      url: `/listItems/${taskToComplete}`,
+    })
+      .then(function (response) {
+        getToDoList();
+      })
+      .catch(function (error) {
+        console.log("error", error);
+      });
+  
+  }
 
     function renderToDom(arrays) {
         $('#to-Do-Body').empty();
