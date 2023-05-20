@@ -1,5 +1,5 @@
 const express = require('express');
-const AddToDoRouter = express.Router();
+const addToDoRouter = express.Router();
 
 //DB CONNECTION.
 
@@ -7,15 +7,15 @@ const pool = require("../modules/pool");
 
 //POST
 
-AddToDoRouter.post('/', (req, res) =>{
+addToDoRouter.post('/', (req, res) =>{
     const addNew = req.body
     console.log('req.body', req.body);
     const queryText = `
-    INSERT INTO "weekend-to-do-app"("To-Do", "complete")
-    VALUES($1,$2)
+    INSERT INTO "weekend-to-do-app"("To-Do")
+    VALUES($1)
     `
-    const values = [addNew.To-Do, addNew.complete]
-    pool.query.apply(queryText, values)
+    const values = [addNew.task]
+    pool.query(queryText, values)
         .then(result => {
             res.sendStatus(200);
         }).catch(error => {
@@ -26,3 +26,6 @@ AddToDoRouter.post('/', (req, res) =>{
 
 
 })
+
+
+module.exports = addToDoRouter

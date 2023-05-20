@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 // const pool = require("../modules/pool");
-const addToDoRouter = express.Router();
+const addToDoRouter = require('./routes/addToDorouter');
 
 
 
