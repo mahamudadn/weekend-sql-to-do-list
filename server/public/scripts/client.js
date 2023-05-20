@@ -6,7 +6,7 @@ function onReady() {
 
     getToDoList();
     $('#add-button').on('click',addToDo )
-    // $('#viewToDo').on('click', '.delete-btn', deleteTask)
+    $('#viewToDo').on('click', '.delete-btn', deleteTask)
 
     
     
@@ -43,6 +43,14 @@ function addToDo() {
     })
 
     };
+
+// DELETE
+
+function deleteTask(){
+    const toDelete =$(this).closest("tr").data("id");
+    console.log(`Clicked', ${toDelete}`);
+}
+
 
     function renderToDom(arrays) {
         $('#to-Do-Body').empty();
