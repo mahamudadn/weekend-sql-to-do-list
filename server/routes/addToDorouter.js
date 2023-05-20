@@ -28,4 +28,21 @@ addToDoRouter.post('/', (req, res) =>{
 })
 
 
+
+addToDoRouter.get('/:id', (req, res) => {
+
+    const idToAdd = req.params.id;
+    let queryText = 'SELECT FROM "" WHERE "id"= $1;';
+    pool.query(queryText, [idToAdd])
+        .then((result) => {
+            console.log(`weekend-to-do-app with id ${idToAdd}, ${result.rows}`);
+            res.send(result.rows);
+        }).catch((error) => {
+            console.log('Error with getting a weekend-to-do-app id', error);
+            res.sendStatus(500);
+        })
+})
+
+
+
 module.exports = addToDoRouter
