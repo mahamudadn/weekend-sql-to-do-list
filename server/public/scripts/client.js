@@ -4,7 +4,7 @@ $(document).ready(onReady);
 function onReady() {
     console.log('js')
     $('#add-button').on('click',addToDo )
-
+    getToDoList();
     
 }
 
@@ -17,7 +17,7 @@ let addNew = $('#to-Do').val();
         url:'/listItems',
         data:{task: addNew}
     }).then(function(response){
-        // getToDoList();
+        getToDoList();
         console.log(response)
     }).catch(function(err){
         console.log(err);
@@ -25,3 +25,16 @@ let addNew = $('#to-Do').val();
 
     
 }
+
+   function getToDoList() {
+    console.log('Hello We have something to do');
+    $.ajax({
+        method:'GET',
+        url:'/listItems',
+    }).then(function(response){
+        console.log('AJAX GET Complete')
+    }).catch(function(error){
+        console.log('Stop There Is Error');
+    })
+
+    };
