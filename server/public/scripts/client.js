@@ -17,7 +17,7 @@ function addToDo(event) {
         url:'/listItems',
         data:addNew
     }).then(function(response){
-        getToDoList();
+        // getToDoList();
         console.log(response)
     }).catch(function(err){
         console.log(err);
