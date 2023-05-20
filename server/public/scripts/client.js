@@ -15,7 +15,7 @@ function addToDo(event) {
     $.ajax({
         type:'POST',
         url:'/listItems',
-        data:newAdd
+        data:addNew
     }).then(function(response){
         getToDoList();
         console.log(response)
