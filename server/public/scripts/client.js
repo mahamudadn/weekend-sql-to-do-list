@@ -6,6 +6,8 @@ function onReady() {
 
     getToDoList();
     $('#add-button').on('click',addToDo )
+    // $('#viewToDo').on('click', '.delete-btn', deleteTask)
+
     
     
 }
@@ -13,7 +15,7 @@ function onReady() {
 function addToDo() {
     // event.preventDefault();
     console.log('AddToDo Working');
-let addNew = $('#to-Do').val();
+    let addNew = $('#to-Do').val();
     $.ajax({
         type:'POST',
         url:'/listItems',
@@ -26,7 +28,7 @@ let addNew = $('#to-Do').val();
     })
 
     
-}
+};
 
    function getToDoList() {
     console.log('Hello We have something to do');
@@ -37,7 +39,7 @@ let addNew = $('#to-Do').val();
         console.log('AJAX GET Complete');
         renderToDom(response);
     }).catch(function(error){
-        console.log('Stop There Is Error');
+        console.log('Stop! There Is Error');
     })
 
     };
@@ -45,13 +47,20 @@ let addNew = $('#to-Do').val();
     function renderToDom(arrays) {
         $('#to-Do-Body').empty();
         $('#to-Do').val('');
+        console.log(arrays);
 
         for (let array of arrays ){
-            $('#to-Do-Body').append(`
-            <tr class = "addToDo" data-id =${listItems.id}>
-            <td class = add-New-To>${listItems.To-Do}</td>
-            <td class = add-To-Complete>${listItems.complete}</td>
-            <tr>
+            $('#viewToDo').append(`
+            
+            <tr class="addToDo" data-id =${array.id}>
+            
+            <td class="add-New-To">${array.todo} </td>
+            <td> <button class="delete-btn">❌</button></td>
+            <td class="complete"><button class="complete-btn">✅</button></td>
+            
+            </tr>
+            
+            
             `)
         }
 

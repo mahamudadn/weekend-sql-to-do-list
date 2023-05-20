@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('server/public'));
 
 // ROUTE
-app.use('/listItems',addToDoRouter )
+app.use('/listItems',addToDoRouter );
 
 
 
