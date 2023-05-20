@@ -12,5 +12,10 @@ function addToDo(event) {
     event.preventDefault();
     console.log('AddToDo Working');
 
+    $.ajax({
+        type:'POST',
+        url:'/listItems'
+    })
+
     
 }
