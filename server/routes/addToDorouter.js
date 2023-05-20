@@ -32,7 +32,7 @@ addToDoRouter.post('/', (req, res) =>{
 addToDoRouter.get('/:id', (req, res) => {
 
     const idToAdd = req.params.id;
-    let queryText = 'SELECT FROM "" WHERE "id"= $1;';
+    let queryText = 'SELECT FROM "weekend-to-do-app" WHERE "id"= $1;';
     pool.query(queryText, [idToAdd])
         .then((result) => {
             console.log(`weekend-to-do-app with id ${idToAdd}, ${result.rows}`);
