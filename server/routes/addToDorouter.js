@@ -56,5 +56,25 @@ addToDoRouter.get('/:id', (req, res) => {
 })
 
 
+// DELETE
+addToDoRouter.delete("/:id", (req, res) => {
+    let idToAdd = req.params.id;
+    let queryText = `DELETE FROM "weekend-to-do-app" WHERE "id" = $1;`;
+    pool.query(queryText, [idToAdd])
+        .then((result) => {
+            console.log(`Koala with id ${idToAdd}, was deleted.`);
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log("Error", error);
+            res.sendStatus(500);
+        });
+
+});
+
+
+
+
+
 
 module.exports = addToDoRouter;

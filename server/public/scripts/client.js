@@ -7,6 +7,7 @@ function onReady() {
     getToDoList();
     $('#add-button').on('click',addToDo )
     $('#viewToDo').on('click', '.delete-btn', deleteTask)
+    $('#viewToDo').on('click', '.complete-btn', deleteTask)
 
     
     
@@ -46,9 +47,23 @@ function addToDo() {
 
 // DELETE
 
-function deleteTask(){
-    const toDelete =$(this).closest("tr").data("id");
-    console.log(`Clicked', ${toDelete}`);
+function deleteTask(event){
+ event.preventDefault();
+ const taskToDelete = $(this).closest("tr").data("id");
+ console.log(`Clicked', ${taskToDelete}`);
+$.ajax({
+    method:"DELETE",
+    url:`/listItems/${taskToDelete}`,
+})
+    .then(function (response) {
+     console.log('YESSSSS!!!!!!!')
+     getToDoList();
+  })
+    .catch(function (error) {
+     console.log("error", error);
+  });
+
+
 }
 
 
@@ -63,8 +78,8 @@ function deleteTask(){
             <tr class="addToDo" data-id =${array.id}>
             
             <td class="add-New-To">${array.todo} </td>
-            <td> <button class="delete-btn">❌</button></td>
-            <td class="complete"><button class="complete-btn">✅</button></td>
+            <td> <button class="delete-btn">Delete</button></td>
+            <td class="complete"><button class="complete-btn">Complete</button></td>
             
             </tr>
             
