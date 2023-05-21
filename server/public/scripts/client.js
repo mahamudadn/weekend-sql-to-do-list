@@ -4,20 +4,20 @@ $(document).ready(onReady);
 function onReady() {
     console.log('js');
 
-    // Fetch the to-do list from the server
+// Fetch the to-do list from the server
     getToDoList();
-        // Bind the addToDo function to the click event of the "Add" button
+// Bind the addToDo function to the click event of the "Add" button
     $('#add-button').on('click',addToDo )
-    // Bind the deleteTask function to the click event of the "Delete" buttons
+// Bind the deleteTask function to the click event of the "Delete" buttons
     $('#viewToDo').on('click', '.delete-btn', deleteTask)
-    // Bind the updateTask function to the click event of the "Complete" buttons
+// Bind the updateTask function to the click event of the "Complete" buttons
     $('#viewToDo').on('click', '.complete-btn', updateTask)
     
 }
 
 // This function adds a new task to the to-do list
 function addToDo() {
-    // event.preventDefault();
+// event.preventDefault();
     console.log('AddToDo Working');
 // Gets the new task from the input field
     let addNew = $('#to-Do').val();
@@ -77,9 +77,7 @@ $.ajax({
 
 }
 
-
 // This function marks a task as complete in the to-do list
-
 
 function updateTask() {
     const taskToComplete = $(this).closest("tr").data("id");
@@ -118,8 +116,9 @@ function updateTask() {
             
             
             `)
+// changes the background-color when ever a task is complete.     
             if(array.complete === true){
-                $(`#${array.id}`).css("background-color", "grey" );
+                $(`#${array.id}`).css("background-color", "lightgreen" );
                 
             }
         }
