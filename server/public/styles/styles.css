@@ -1,92 +1,73 @@
-/* styles.css */
-
-/* Reset default browser styles */
-body, h1, table {
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  padding: 20px;
-}
-
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
+/* To-Do List section */
 #to-do-List {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+  text-align: center;
+  margin: 20px auto;
 }
 
-#to-Do {
-  width: 300px;
-  padding: 8px;
-  font-size: 16px;
+#to-do-List input[type="text"] {
+  padding: 10px;
+  width: 200px;
+  margin-right: 10px;
 }
 
 #add-button {
-  padding: 8px 12px;
-  font-size: 16px;
-  background-color: #4caf50;
+  padding: 10px 20px;
+  background-color: #4CAF50;
   color: white;
   border: none;
   cursor: pointer;
 }
 
+#add-button:hover {
+  background-color: #45a049;
+}
+
+/* Table */
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: white;
-}
-
-thead {
-  background-color: #f2f2f2;
+  margin-top: 20px;
 }
 
 th, td {
   padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
 th {
-  font-weight: bold;
+  background-color: #4CAF50;
+  color: white;
 }
 
-th:nth-child(1) {
-  width: 60%;
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-th:nth-child(2),
-th:nth-child(3) {
-  width: 20%;
-}
-
-th:nth-child(2),
-th:nth-child(3),
-td:last-child button {
-  display: flex;
-  justify-content: center;
-}
-
-td:last-child button {
-  padding: 6px 12px;
-  font-size: 14px;
+/* Button styles */
+.delete-button, .complete-button {
+  padding: 5px 10px;
   background-color: #f44336;
   color: white;
   border: none;
   cursor: pointer;
 }
 
-td:last-child button.complete {
-  background-color: #2196f3;
+.complete-button {
+  background-color: #2196F3;
 }
 
-td:last-child button:hover {
+.delete-button:hover, .complete-button:hover {
   opacity: 0.8;
 }
