@@ -58,11 +58,11 @@ addToDoRouter.get('/:id', (req, res) => {
 
 // DELETE
 addToDoRouter.delete("/:id", (req, res) => {
-    let idToAdd = req.params.id;
+    let idToDelete = req.params.id;
     let queryText = `DELETE FROM "weekend-to-do-app" WHERE "id" = $1;`;
-    pool.query(queryText, [idToAdd])
+    pool.query(queryText, [idToDelete])
         .then((result) => {
-            console.log(`Add To do with id ${idToAdd}, was deleted.`);
+            console.log(`Add To do with id ${idToDelete}, was deleted.`);
             res.sendStatus(200);
         })
         .catch((error) => {
@@ -73,9 +73,9 @@ addToDoRouter.delete("/:id", (req, res) => {
 });
 
 addToDoRouter.put('/:id', (req, res) => {
-    let idToAdd = req.params.id;
-    let queryText = `UPDATE "weekend-to-do-app" SET "complete" = 'FALSE' WHERE id = $1;`;
-    pool.query(queryText, [idToAdd])
+    let idToUpdate = req.params.id;
+    let queryText = `UPDATE "weekend-to-do-app" SET "complete" = 'TRUE' WHERE "id" = $1;`;
+    pool.query(queryText, [idToUpdate])
         .then((result) => {
             res.sendStatus(200);
         })

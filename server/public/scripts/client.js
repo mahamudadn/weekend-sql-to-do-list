@@ -52,8 +52,8 @@ function deleteTask(event){
  const taskToDelete = $(this).closest("tr").data("id");
  console.log(`Clicked', ${taskToDelete}`);
 $.ajax({
-    method:"DELETE",
-    url:`/listItems/${taskToDelete}`,
+    method: "DELETE",
+    url: `/listItems/${taskToDelete}`,
 })
     .then(function (response) {
      console.log('YESSSSS!!!!!!!')
@@ -86,14 +86,15 @@ function updateTask() {
   }
 
     function renderToDom(arrays) {
-        $('#to-Do-Body').empty();
+        $('#viewToDo').empty();
         $('#to-Do').val('');
         console.log(arrays);
 
         for (let array of arrays ){
             $('#viewToDo').append(`
+
             
-            <tr class="addToDo" data-id =${array.id}>
+            <tr id=${array.id} class="addToDo" data-id =${array.id}>
             
             <td class="add-New-To">${array.todo} </td>
             <td> <button class="delete-btn">Delete</button></td>
@@ -103,6 +104,10 @@ function updateTask() {
             
             
             `)
+            if(array.complete === true){
+                $(`#${array.id}`).css("background-color", "grey" );
+                
+            }
         }
 
 
