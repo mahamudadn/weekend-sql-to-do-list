@@ -1,58 +1,92 @@
+/* styles.css */
+
+/* Reset default browser styles */
+body, h1, table {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  margin: 0;
+  background-color: #f5f5f5;
   padding: 20px;
 }
 
 h1 {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 #to-do-List {
+  display: flex;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
 #to-Do {
   width: 300px;
-  padding: 10px;
+  padding: 8px;
   font-size: 16px;
 }
 
 #add-button {
-  padding: 10px 20px;
+  padding: 8px 12px;
   font-size: 16px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   cursor: pointer;
 }
 
-#to-Do-Body {
-  list-style-type: none;
-  padding: 0;
-}
-
-#to-Do-Body li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+table {
+  width: 100%;
+  border-collapse: collapse;
   background-color: white;
-  border-radius: 5px;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+th, td {
   padding: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-#to-Do-Body li span {
-  flex-grow: 1;
+th {
+  font-weight: bold;
 }
 
-#to-Do-Body li button {
+th:nth-child(1) {
+  width: 60%;
+}
+
+th:nth-child(2),
+th:nth-child(3) {
+  width: 20%;
+}
+
+th:nth-child(2),
+th:nth-child(3),
+td:last-child button {
+  display: flex;
+  justify-content: center;
+}
+
+td:last-child button {
+  padding: 6px 12px;
+  font-size: 14px;
   background-color: #f44336;
   color: white;
   border: none;
-  padding: 5px 10px;
-  border-radius: 3px;
   cursor: pointer;
+}
+
+td:last-child button.complete {
+  background-color: #2196f3;
+}
+
+td:last-child button:hover {
+  opacity: 0.8;
 }
