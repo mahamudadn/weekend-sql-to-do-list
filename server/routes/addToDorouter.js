@@ -40,6 +40,7 @@ addToDoRouter.get('/', (req, res) => {
         })
 });
 
+// GET
 
 addToDoRouter.get('/:id', (req, res) => {
 
@@ -71,7 +72,7 @@ addToDoRouter.delete("/:id", (req, res) => {
         });
 
 });
-
+// PUT
 addToDoRouter.put('/:id', (req, res) => {
     let idToUpdate = req.params.id;
     let queryText = `UPDATE "weekend-to-do-app" SET "complete" = 'TRUE' WHERE "id" = $1;`;
